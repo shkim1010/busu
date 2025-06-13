@@ -8,15 +8,14 @@
 /* 전체 페이지 스타일 */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f0f0f0;  /* 배경색 */
-    color: #333;  /* 글자 색 */
+    background-color: #f0f0f0;
+    color: #333;
     line-height: 1.6;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    overflow-x: hidden;
 }
 
 /* 잠금화면 스타일 */
@@ -24,12 +23,11 @@ body {
     position: relative;
     width: 100%;
     height: 100vh;
-    background-color: #ffffff;  /* 배경 색 */
+    background-color: #ffffff;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -72,10 +70,6 @@ body {
     font-size: 18px;
 }
 
-.music-controls {
-    margin-top: 20px;
-}
-
 /* iMessage 화면 스타일 */
 .imessage-screen {
     width: 100%;
@@ -98,7 +92,7 @@ body {
     color: #333;
 }
 
-/* 상대방 이름 스타일 */
+/* 상대 이름 */
 .contact-name {
     text-align: center;
     font-size: 18px;
@@ -109,7 +103,7 @@ body {
 .messages {
     padding: 20px;
     overflow-y: auto;
-    height: calc(100vh - 200px);  /* 메시지 영역 크기 */
+    height: calc(100vh - 200px);
 }
 
 .message {
@@ -134,48 +128,7 @@ body {
     text-align: left;
 }
 
-/* 메시지 입력 창 */
-.input-area {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: #f0f0f0;
-    padding: 15px;
-    box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.1);
-}
-
-.input-area input {
-    width: 100%;
-    padding: 12px;
-    font-size: 16px;
-    border: none;
-    border-radius: 20px;
-    background-color: #ffffff;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-
-/* 반응형 디자인 (모바일 대응) */
-@media (max-width: 768px) {
-    .lock-screen,
-    .imessage-screen {
-        padding: 10px;
-    }
-
-    .status-bar {
-        font-size: 14px;
-    }
-
-    .input-area input {
-        font-size: 14px;
-    }
-
-    .message {
-        font-size: 14px;
-    }
-}
-
-/* 애니메이션 효과 */
+/* 애니메이션 */
 @keyframes slideIn {
     from {
         opacity: 0;
