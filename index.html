@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>향수 추천 시스템</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 사용자 입력 -->
+    <div class="input-area">
+        <input type="text" id="music-input" placeholder="좋아하는 음악 제목을 입력하세요">
+        <input type="text" id="singer-input" placeholder="이 부른 가수 이름을 입력하세요">
+        <button id="submit-music">향수 추천 받기</button>
+    </div>
+
+    <!-- 추천 결과 -->
+    <div id="perfume-result">
+        <p>추천된 향수: <span id="perfume-name"></span></p>
+    </div>
+
+    <script>
+    document.getElementById("submit-music").onclick = async function() {
+        let musicTitle = document.getElementById("music-input").value;
+        let singerName = document.getElementById("singer-input").value;
+
+        // 서버로 음악 제목과 가수 이름 전송
+        let response = await fetch('/get_perfume', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ music_title: musicTitle, singer_name: singerName })
+        });
+        
+        let result = await response.json();
+        document.getElementById("perfume-name").innerText = result.perfume_name;
+    }
+    </script>
+</body>
+</html>
