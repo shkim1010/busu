@@ -7,16 +7,44 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- 사용자 입력 -->
-    <div class="input-area">
-        <input type="text" id="music-input" placeholder="좋아하는 음악 제목을 입력하세요">
-        <input type="text" id="singer-input" placeholder="이 부른 가수 이름을 입력하세요">
-        <button id="submit-music">향수 추천 받기</button>
+    <!-- 잠금화면 -->
+    <div class="lock-screen" id="lock-screen">
+        <div class="status-bar">
+            <span id="time">11:00</span>
+            <span id="date">2025년 6월 13일</span>
+            <span id="battery">배터리: 93%</span>
+        </div>
+        <div class="music-widget">
+            <div class="album-cover">
+                <img src="album_cover.jpg" alt="앨범 표지"> <!-- 벚꽃 이미지로 변경 -->
+            </div>
+            <div class="song-info">
+                <p>장범준 - 흔들리는 꽃들 속에서 네 샴푸향이 느껴진 거야</p>
+            </div>
+        </div>
     </div>
 
-    <!-- 추천 결과 -->
-    <div id="perfume-result">
-        <p>추천된 향수: <span id="perfume-name"></span></p>
+    <!-- iMessage 화면 -->
+    <div class="imessage-screen" id="imessage-screen">
+        <div class="status-bar">
+            <span id="time">현재 시각</span>
+            <span id="date">현재 날짜</span>
+            <span id="battery">배터리: 93%</span>
+        </div>
+
+        <!-- 상대방 이름 -->
+        <div class="contact-name">
+            <p>코드긱스</p>
+        </div>
+
+        <!-- 말풍선들 -->
+        <div class="messages">
+            <!-- 여기에 빈 말풍선만 만들어놓을 거야 -->
+            <div class="message blue">여기에 내 말 적으면 된다</div>
+            <div class="message gray">여기에 상대가 보낸 말 적으면 된다</div>
+        </div>
+
+        <!-- 메시지 입력창 제거됨 (요구 사항에 맞게 빈 말풍선만 남기기) -->
     </div>
 
     <script>
@@ -24,7 +52,6 @@
         let musicTitle = document.getElementById("music-input").value;
         let singerName = document.getElementById("singer-input").value;
 
-        // 서버로 음악 제목과 가수 이름 전송
         let response = await fetch('/get_perfume', {
             method: 'POST',
             headers: {
@@ -34,7 +61,7 @@
         });
         
         let result = await response.json();
-        document.getElementById("perfume-name").innerText = result.perfume_name;
+        alert('추천된 향수: ' + result.perfume_name);
     }
     </script>
 </body>
